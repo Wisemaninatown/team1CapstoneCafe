@@ -20,11 +20,11 @@ cd /bin
 ## Run the backend micro-services
 See the README.md files inside the each microservices directory:
 
-- Order
-- CafeManagement
-- Payment
-- CustomerManagement
-- DashBoard
+- order
+- cafemanagement
+- payment
+- customermanagement
+- dashboard
 
 
 ## Run API Gateway (Spring Gateway)
@@ -34,23 +34,23 @@ mvn spring-boot:run
 ```
 
 ## Test by API
-- Order
+- order
 ```
  http :8088/orders id="id" productId="productId" qty="qty" customerId="customerId" amount="amount" status="status" pickupTime="pickupTime" 
 ```
-- CafeManagement
+- cafemanagement
 ```
  http :8088/orderManagements id="id" productId="productId" qty="qty" customerId="customerId" status="status" orderId="orderId" 
 ```
-- Payment
+- payment
 ```
  http :8088/pays id="id" amount="amount" status="status" customerId="customerId" orderId="orderId" 
 ```
-- CustomerManagement
+- customermanagement
 ```
  http :8088/pushMessages id="id" sendMsg="sendMsg" productId="productId" qty="qty" status="status" orderId="orderId" 
 ```
-- DashBoard
+- dashboard
 ```
 ```
 

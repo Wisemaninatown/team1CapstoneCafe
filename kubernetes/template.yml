@@ -3,22 +3,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: Order
+  name: order
   labels:
-    app: Order
+    app: order
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: Order
+      app: order
   template:
     metadata:
       labels:
-        app: Order
+        app: order
     spec:
       containers:
-        - name: Order
-          image: username/Order:latest
+        - name: order
+          image: username/order:latest
           ports:
             - containerPort: 8080
           readinessProbe:
@@ -43,22 +43,22 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: CafeManagement
+  name: cafemanagement
   labels:
-    app: CafeManagement
+    app: cafemanagement
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: CafeManagement
+      app: cafemanagement
   template:
     metadata:
       labels:
-        app: CafeManagement
+        app: cafemanagement
     spec:
       containers:
-        - name: CafeManagement
-          image: username/CafeManagement:latest
+        - name: cafemanagement
+          image: username/cafemanagement:latest
           ports:
             - containerPort: 8080
           readinessProbe:
@@ -83,22 +83,22 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: Payment
+  name: payment
   labels:
-    app: Payment
+    app: payment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: Payment
+      app: payment
   template:
     metadata:
       labels:
-        app: Payment
+        app: payment
     spec:
       containers:
-        - name: Payment
-          image: username/Payment:latest
+        - name: payment
+          image: username/payment:latest
           ports:
             - containerPort: 8080
           readinessProbe:
@@ -123,22 +123,22 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: CustomerManagement
+  name: customermanagement
   labels:
-    app: CustomerManagement
+    app: customermanagement
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: CustomerManagement
+      app: customermanagement
   template:
     metadata:
       labels:
-        app: CustomerManagement
+        app: customermanagement
     spec:
       containers:
-        - name: CustomerManagement
-          image: username/CustomerManagement:latest
+        - name: customermanagement
+          image: username/customermanagement:latest
           ports:
             - containerPort: 8080
           readinessProbe:
@@ -163,22 +163,22 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: DashBoard
+  name: dashboard
   labels:
-    app: DashBoard
+    app: dashboard
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: DashBoard
+      app: dashboard
   template:
     metadata:
       labels:
-        app: DashBoard
+        app: dashboard
     spec:
       containers:
-        - name: DashBoard
-          image: username/DashBoard:latest
+        - name: dashboard
+          image: username/dashboard:latest
           ports:
             - containerPort: 8080
           readinessProbe:
@@ -205,15 +205,15 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: Order
+  name: order
   labels:
-    app: Order
+    app: order
 spec:
   ports:
     - port: 8080
       targetPort: 8080
   selector:
-    app: Order
+    app: order
 
 
 ---
@@ -222,15 +222,15 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: CafeManagement
+  name: cafemanagement
   labels:
-    app: CafeManagement
+    app: cafemanagement
 spec:
   ports:
     - port: 8080
       targetPort: 8080
   selector:
-    app: CafeManagement
+    app: cafemanagement
 
 
 ---
@@ -239,15 +239,15 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: Payment
+  name: payment
   labels:
-    app: Payment
+    app: payment
 spec:
   ports:
     - port: 8080
       targetPort: 8080
   selector:
-    app: Payment
+    app: payment
 
 
 ---
@@ -256,15 +256,15 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: CustomerManagement
+  name: customermanagement
   labels:
-    app: CustomerManagement
+    app: customermanagement
 spec:
   ports:
     - port: 8080
       targetPort: 8080
   selector:
-    app: CustomerManagement
+    app: customermanagement
 
 
 ---
@@ -273,13 +273,13 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: DashBoard
+  name: dashboard
   labels:
-    app: DashBoard
+    app: dashboard
 spec:
   ports:
     - port: 8080
       targetPort: 8080
   selector:
-    app: DashBoard
+    app: dashboard
 
