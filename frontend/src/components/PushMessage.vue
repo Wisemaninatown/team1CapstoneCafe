@@ -21,6 +21,7 @@
             <String label="ProductId" v-model="value.productId" :editMode="editMode"/>
             <Number label="Qty" v-model="value.qty" :editMode="editMode"/>
             <String label="Status" v-model="value.status" :editMode="editMode"/>
+            <String label="OrderId" v-model="value.orderId" :editMode="editMode"/>
         </v-card-text>
 
         <v-card-actions>

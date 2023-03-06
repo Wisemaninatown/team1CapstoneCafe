@@ -8,22 +8,26 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: Order
+        - id: order
           uri: http://localhost:8081
           predicates:
-            - Path=/orders/**, /menuLists/**, /orderStatuses/**
-        - id: CafeManagement
+            - Path=/orders/**, 
+        - id: cafemanagement
           uri: http://localhost:8082
           predicates:
             - Path=/orderManagements/**, 
-        - id: Payment
+        - id: payment
           uri: http://localhost:8083
           predicates:
             - Path=/pays/**, 
-        - id: CustomerManagement
+        - id: customermanagement
           uri: http://localhost:8084
           predicates:
             - Path=/pushMessages/**, 
+        - id: dashboard
+          uri: http://localhost:8085
+          predicates:
+            - Path=, /orderInfos/**
         - id: frontend
           uri: http://localhost:8080
           predicates:
@@ -47,22 +51,26 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: Order
+        - id: order
           uri: http://order:8080
           predicates:
-            - Path=/orders/**, /menuLists/**, /orderStatuses/**
-        - id: CafeManagement
-          uri: http://cafeManagement:8080
+            - Path=/orders/**, 
+        - id: cafemanagement
+          uri: http://cafemanagement:8080
           predicates:
             - Path=/orderManagements/**, 
-        - id: Payment
+        - id: payment
           uri: http://payment:8080
           predicates:
             - Path=/pays/**, 
-        - id: CustomerManagement
-          uri: http://customerManagement:8080
+        - id: customermanagement
+          uri: http://customermanagement:8080
           predicates:
             - Path=/pushMessages/**, 
+        - id: dashboard
+          uri: http://dashboard:8080
+          predicates:
+            - Path=, /orderInfos/**
         - id: frontend
           uri: http://frontend:8080
           predicates:
