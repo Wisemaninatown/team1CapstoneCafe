@@ -70,6 +70,7 @@
                     { text: "amount", value: "amount" },
                     { text: "status", value: "status" },
                     { text: "customerId", value: "customerId" },
+                    { text: "orderId", value: "orderId" },
                 ],
             pay : [],
             newValue: {},
@@ -90,6 +91,7 @@
                 'amount': 0,
                 'status': '',
                 'customerId': '',
+                'orderId': '',
             }
         },
         methods: {

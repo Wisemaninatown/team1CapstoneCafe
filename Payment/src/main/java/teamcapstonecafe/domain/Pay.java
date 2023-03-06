@@ -43,6 +43,12 @@ public class Pay  {
     
     
     private String customerId;
+    
+    
+    
+    
+    
+    private String orderId;
 
     @PostPersist
     public void onPostPersist(){
@@ -65,8 +71,6 @@ public class Pay  {
 
 
 
-    public void payment(PaymentCommand paymentCommand){
-    }
 
     public static void cancelPayment(OrderCanceled orderCanceled){
 
@@ -79,6 +83,27 @@ public class Pay  {
         /** Example 2:  finding and process
         
         repository().findById(orderCanceled.get???()).ifPresent(pay->{
+            
+            pay // do something
+            repository().save(pay);
+
+
+         });
+        */
+
+        
+    }
+    public static void payment(Ordered ordered){
+
+        /** Example 1:  new item 
+        Pay pay = new Pay();
+        repository().save(pay);
+
+        */
+
+        /** Example 2:  finding and process
+        
+        repository().findById(ordered.get???()).ifPresent(pay->{
             
             pay // do something
             repository().save(pay);

@@ -12,6 +12,7 @@ public class PaymentApproved extends AbstractEvent {
     private Float amount;
     private String status;
     private String customerId;
+    private String orderId;
 }
 
 

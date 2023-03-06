@@ -14,6 +14,7 @@ public class PaymentCanceled extends AbstractEvent {
     private Float amount;
     private String status;
     private String customerId;
+    private String orderId;
 
     public PaymentCanceled(Pay aggregate){
         super(aggregate);

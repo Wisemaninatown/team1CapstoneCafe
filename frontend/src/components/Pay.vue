@@ -20,6 +20,7 @@
             <Number label="Amount" v-model="value.amount" :editMode="editMode"/>
             <String label="Status" v-model="value.status" :editMode="editMode"/>
             <String label="CustomerId" v-model="value.customerId" :editMode="editMode"/>
+            <String label="OrderId" v-model="value.orderId" :editMode="editMode"/>
         </v-card-text>
 
         <v-card-actions>
@@ -59,20 +60,6 @@
         </v-card-actions>
         <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn
-                    v-if="!editMode"
-                    color="deep-purple lighten-2"
-                    text
-                    @click="openPayment"
-            >
-                Payment
-            </v-btn>
-            <v-dialog v-model="paymentDiagram" width="500">
-                <PaymentCommand
-                        @closeDialog="closePayment"
-                        @payment="payment"
-                ></PaymentCommand>
-            </v-dialog>
         </v-card-actions>
 
         <v-snackbar
@@ -110,7 +97,6 @@
                 timeout: 5000,
                 text: ''
             },
-            paymentDiagram: false,
         }),
         computed:{
         },
@@ -205,17 +191,16 @@
             change(){
                 this.$emit('input', this.value);
             },
-            async payment(params) {
+            async () {
                 try {
                     if(!this.offline) {
-                        var temp = await axios.put(axios.fixUrl(this.value._links['payment'].href), params)
+                        var temp = await axios.put(axios.fixUrl(this.value._links[''].href))
                         for(var k in temp.data) {
                             this.value[k]=temp.data[k];
                         }
                     }
 
                     this.editMode = false;
-                    this.closePayment();
                 } catch(e) {
                     this.snackbar.status = true
                     if(e.response && e.response.data.message) {
@@ -224,12 +209,6 @@
                         this.snackbar.text = e
                     }
                 }
-            },
-            openPayment() {
-                this.paymentDiagram = true;
-            },
-            closePayment() {
-                this.paymentDiagram = false;
             },
         },
     }

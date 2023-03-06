@@ -21,23 +21,4 @@ public class OrderManagementController {
 
 
 
-    @RequestMapping(value = "orderManagements/{id}/orderconfirmed",
-        method = RequestMethod.PUT,
-        produces = "application/json;charset=UTF-8")
-    public OrderManagement orderConfirmed(@PathVariable(value = "id") Long id, @RequestBody OrderConfirmedCommand orderConfirmedCommand, HttpServletRequest request, HttpServletResponse response) throws Exception {
-            System.out.println("##### /orderManagement/orderConfirmed  called #####");
-            Optional<OrderManagement> optionalOrderManagement = orderManagementRepository.findById(id);
-            
-            optionalOrderManagement.orElseThrow(()-> new Exception("No Entity Found"));
-            OrderManagement orderManagement = optionalOrderManagement.get();
-            orderManagement.orderConfirmed(orderConfirmedCommand);
-            
-            orderManagementRepository.save(orderManagement);
-            return orderManagement;
-            
-    }
-    
-
-
-
 }

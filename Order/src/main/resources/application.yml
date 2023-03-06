@@ -39,10 +39,6 @@ logging:
     org.hibernate.type: trace
     org.springframework.cloud: debug
 
-api:
-  url:
-    Payment: localhost:8083
-
 
 server:
   port: 8081
@@ -72,9 +68,5 @@ spring:
         event-out:
           destination: teamcapstonecafe
           contentType: application/json
-
-api:
-  url:
-    Payment: localhost:8080
 
 

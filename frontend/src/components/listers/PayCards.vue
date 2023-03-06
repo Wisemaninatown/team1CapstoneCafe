@@ -71,6 +71,7 @@
                 'amount': 0,
                 'status': '',
                 'customerId': '',
+                'orderId': '',
             }
         },
         methods:{

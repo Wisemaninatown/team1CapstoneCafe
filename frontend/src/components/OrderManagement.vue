@@ -21,6 +21,7 @@
             <Number label="Qty" v-model="value.qty" :editMode="editMode"/>
             <String label="CustomerId" v-model="value.customerId" :editMode="editMode"/>
             <String label="Status" v-model="value.status" :editMode="editMode"/>
+            <String label="OrderId" v-model="value.orderId" :editMode="editMode"/>
         </v-card-text>
 
         <v-card-actions>
@@ -60,20 +61,6 @@
         </v-card-actions>
         <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn
-                    v-if="!editMode"
-                    color="deep-purple lighten-2"
-                    text
-                    @click="openOrderConfirmed"
-            >
-                OrderConfirmed
-            </v-btn>
-            <v-dialog v-model="orderConfirmedDiagram" width="500">
-                <OrderConfirmedCommand
-                        @closeDialog="closeOrderConfirmed"
-                        @orderConfirmed="orderConfirmed"
-                ></OrderConfirmedCommand>
-            </v-dialog>
         </v-card-actions>
 
         <v-snackbar
@@ -111,7 +98,6 @@
                 timeout: 5000,
                 text: ''
             },
-            orderConfirmedDiagram: false,
         }),
         computed:{
         },
@@ -206,17 +192,16 @@
             change(){
                 this.$emit('input', this.value);
             },
-            async orderConfirmed(params) {
+            async () {
                 try {
                     if(!this.offline) {
-                        var temp = await axios.put(axios.fixUrl(this.value._links['orderconfirmed'].href), params)
+                        var temp = await axios.put(axios.fixUrl(this.value._links[''].href))
                         for(var k in temp.data) {
                             this.value[k]=temp.data[k];
                         }
                     }
 
                     this.editMode = false;
-                    this.closeOrderConfirmed();
                 } catch(e) {
                     this.snackbar.status = true
                     if(e.response && e.response.data.message) {
@@ -225,12 +210,6 @@
                         this.snackbar.text = e
                     }
                 }
-            },
-            openOrderConfirmed() {
-                this.orderConfirmedDiagram = true;
-            },
-            closeOrderConfirmed() {
-                this.orderConfirmedDiagram = false;
             },
         },
     }

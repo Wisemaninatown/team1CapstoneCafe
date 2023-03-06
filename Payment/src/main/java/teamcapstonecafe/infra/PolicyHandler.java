@@ -39,6 +39,23 @@ public class PolicyHandler{
 
     }
 
+    @StreamListener(value=KafkaProcessor.INPUT, condition="headers['type']=='Ordered'")
+    public void wheneverOrdered_Payment(@Payload Ordered ordered){
+
+        Ordered event = ordered;
+        System.out.println("\n\n##### listener Payment : " + ordered + "\n\n");
+
+
+        
+
+        // Sample Logic //
+        Pay.payment(event);
+        
+
+        
+
+    }
+
 }
 
 

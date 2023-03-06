@@ -8,10 +8,6 @@ Vue.use(Router);
 import OrderManager from "./components/listers/OrderCards"
 import OrderDetail from "./components/listers/OrderDetail"
 
-import MenuListView from "./components/MenuListView"
-import MenuListViewDetail from "./components/MenuListViewDetail"
-import OrderStatusView from "./components/OrderStatusView"
-import OrderStatusViewDetail from "./components/OrderStatusViewDetail"
 import OrderManagementManager from "./components/listers/OrderManagementCards"
 import OrderManagementDetail from "./components/listers/OrderManagementDetail"
 
@@ -21,6 +17,9 @@ import PayDetail from "./components/listers/PayDetail"
 import PushMessageManager from "./components/listers/PushMessageCards"
 import PushMessageDetail from "./components/listers/PushMessageDetail"
 
+
+import OrderInfoView from "./components/OrderInfoView"
+import OrderInfoViewDetail from "./components/OrderInfoViewDetail"
 
 export default new Router({
     // mode: 'history',
@@ -37,26 +36,6 @@ export default new Router({
                 component: OrderDetail
             },
 
-            {
-                path: '/menuLists',
-                name: 'MenuListView',
-                component: MenuListView
-            },
-            {
-                path: '/menuLists/:id',
-                name: 'MenuListViewDetail',
-                component: MenuListViewDetail
-            },
-            {
-                path: '/orderStatuses',
-                name: 'OrderStatusView',
-                component: OrderStatusView
-            },
-            {
-                path: '/orderStatuses/:id',
-                name: 'OrderStatusViewDetail',
-                component: OrderStatusViewDetail
-            },
             {
                 path: '/orderManagements',
                 name: 'OrderManagementManager',
@@ -90,6 +69,17 @@ export default new Router({
                 component: PushMessageDetail
             },
 
+
+            {
+                path: '/orderInfos',
+                name: 'OrderInfoView',
+                component: OrderInfoView
+            },
+            {
+                path: '/orderInfos/:id',
+                name: 'OrderInfoViewDetail',
+                component: OrderInfoViewDetail
+            },
 
 
     ]

@@ -71,6 +71,7 @@
                     { text: "qty", value: "qty" },
                     { text: "customerId", value: "customerId" },
                     { text: "status", value: "status" },
+                    { text: "orderId", value: "orderId" },
                 ],
             orderManagement : [],
             newValue: {},
@@ -92,6 +93,7 @@
                 'qty': 0,
                 'customerId': '',
                 'status': '',
+                'orderId': '',
             }
         },
         methods: {

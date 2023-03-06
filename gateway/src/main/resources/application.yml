@@ -11,7 +11,7 @@ spring:
         - id: Order
           uri: http://localhost:8081
           predicates:
-            - Path=/orders/**, /menuLists/**, /orderStatuses/**
+            - Path=/orders/**, 
         - id: CafeManagement
           uri: http://localhost:8082
           predicates:
@@ -24,6 +24,10 @@ spring:
           uri: http://localhost:8084
           predicates:
             - Path=/pushMessages/**, 
+        - id: DashBoard
+          uri: http://localhost:8085
+          predicates:
+            - Path=, /orderInfos/**
         - id: frontend
           uri: http://localhost:8080
           predicates:
@@ -50,7 +54,7 @@ spring:
         - id: Order
           uri: http://order:8080
           predicates:
-            - Path=/orders/**, /menuLists/**, /orderStatuses/**
+            - Path=/orders/**, 
         - id: CafeManagement
           uri: http://cafeManagement:8080
           predicates:
@@ -63,6 +67,10 @@ spring:
           uri: http://customerManagement:8080
           predicates:
             - Path=/pushMessages/**, 
+        - id: DashBoard
+          uri: http://dashBoard:8080
+          predicates:
+            - Path=, /orderInfos/**
         - id: frontend
           uri: http://frontend:8080
           predicates:

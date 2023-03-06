@@ -47,6 +47,12 @@ public class PushMessage  {
     
     
     private String status;
+    
+    
+    
+    
+    
+    private String orderId;
 
 
     public static PushMessageRepository repository(){
@@ -57,7 +63,7 @@ public class PushMessage  {
 
 
 
-    public static void messageNotified(CookStarted cookStarted){
+    public static void messageNotified(CoffeeDone coffeeDone){
 
         /** Example 1:  new item 
         PushMessage pushMessage = new PushMessage();
@@ -67,28 +73,7 @@ public class PushMessage  {
 
         /** Example 2:  finding and process
         
-        repository().findById(cookStarted.get???()).ifPresent(pushMessage->{
-            
-            pushMessage // do something
-            repository().save(pushMessage);
-
-
-         });
-        */
-
-        
-    }
-    public static void messageNotified(PointAssigned pointAssigned){
-
-        /** Example 1:  new item 
-        PushMessage pushMessage = new PushMessage();
-        repository().save(pushMessage);
-
-        */
-
-        /** Example 2:  finding and process
-        
-        repository().findById(pointAssigned.get???()).ifPresent(pushMessage->{
+        repository().findById(coffeeDone.get???()).ifPresent(pushMessage->{
             
             pushMessage // do something
             repository().save(pushMessage);

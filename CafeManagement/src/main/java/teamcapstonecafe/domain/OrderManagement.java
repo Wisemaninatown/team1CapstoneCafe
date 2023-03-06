@@ -1,7 +1,6 @@
 package teamcapstonecafe.domain;
 
-import teamcapstonecafe.domain.CookStarted;
-import teamcapstonecafe.domain.PointAssigned;
+import teamcapstonecafe.domain.CoffeeDone;
 import teamcapstonecafe.CafeManagementApplication;
 import javax.persistence.*;
 import java.util.List;
@@ -49,18 +48,19 @@ public class OrderManagement  {
     
     
     private String status;
+    
+    
+    
+    
+    
+    private String orderId;
 
     @PostPersist
     public void onPostPersist(){
 
 
-        CookStarted cookStarted = new CookStarted(this);
-        cookStarted.publishAfterCommit();
-
-
-
-        PointAssigned pointAssigned = new PointAssigned(this);
-        pointAssigned.publishAfterCommit();
+        CoffeeDone coffeeDone = new CoffeeDone(this);
+        coffeeDone.publishAfterCommit();
 
     }
 
@@ -69,10 +69,11 @@ public class OrderManagement  {
         return orderManagementRepository;
     }
 
-
-
-    public void orderConfirmed(OrderConfirmedCommand orderConfirmedCommand){
+    public void OrderConfirmed(){
+        //
     }
+
+
 
     public static void orderReceived(PaymentApproved paymentApproved){
 

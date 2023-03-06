@@ -22,17 +22,17 @@ public class PolicyHandler{
     @StreamListener(KafkaProcessor.INPUT)
     public void whatever(@Payload String eventString){}
 
-    @StreamListener(value=KafkaProcessor.INPUT, condition="headers['type']=='CookStarted'")
-    public void wheneverCookStarted_OrderStatusChanged(@Payload CookStarted cookStarted){
+    @StreamListener(value=KafkaProcessor.INPUT, condition="headers['type']=='CoffeeDone'")
+    public void wheneverCoffeeDone_UpdateOrderStatus(@Payload CoffeeDone coffeeDone){
 
-        CookStarted event = cookStarted;
-        System.out.println("\n\n##### listener OrderStatusChanged : " + cookStarted + "\n\n");
+        CoffeeDone event = coffeeDone;
+        System.out.println("\n\n##### listener UpdateOrderStatus : " + coffeeDone + "\n\n");
 
 
         
 
         // Sample Logic //
-        Order.orderStatusChanged(event);
+        Order.updateOrderStatus(event);
         
 
         

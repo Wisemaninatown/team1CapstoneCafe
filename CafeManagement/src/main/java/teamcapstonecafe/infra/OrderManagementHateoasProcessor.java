@@ -11,7 +11,6 @@ public class OrderManagementHateoasProcessor implements RepresentationModelProce
 
     @Override
     public EntityModel<OrderManagement> process(EntityModel<OrderManagement> model) {
-        model.add(Link.of(model.getRequiredLink("self").getHref() + "/orderconfirmed").withRel("orderconfirmed"));
 
         
         return model;

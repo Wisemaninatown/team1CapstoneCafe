@@ -22,27 +22,11 @@ public class PolicyHandler{
     @StreamListener(KafkaProcessor.INPUT)
     public void whatever(@Payload String eventString){}
 
-    @StreamListener(value=KafkaProcessor.INPUT, condition="headers['type']=='CookStarted'")
-    public void wheneverCookStarted_MessageNotified(@Payload CookStarted cookStarted){
+    @StreamListener(value=KafkaProcessor.INPUT, condition="headers['type']=='CoffeeDone'")
+    public void wheneverCoffeeDone_MessageNotified(@Payload CoffeeDone coffeeDone){
 
-        CookStarted event = cookStarted;
-        System.out.println("\n\n##### listener MessageNotified : " + cookStarted + "\n\n");
-
-
-        
-
-        // Sample Logic //
-        PushMessage.messageNotified(event);
-        
-
-        
-
-    }
-    @StreamListener(value=KafkaProcessor.INPUT, condition="headers['type']=='PointAssigned'")
-    public void wheneverPointAssigned_MessageNotified(@Payload PointAssigned pointAssigned){
-
-        PointAssigned event = pointAssigned;
-        System.out.println("\n\n##### listener MessageNotified : " + pointAssigned + "\n\n");
+        CoffeeDone event = coffeeDone;
+        System.out.println("\n\n##### listener MessageNotified : " + coffeeDone + "\n\n");
 
 
         
